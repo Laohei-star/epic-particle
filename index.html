@@ -83,7 +83,7 @@
   <input type="file" id="imgFile" accept="image/*" style="display:none">
   <button class="clear-btn" id="demoBtn">恢复示例图片</button>
   <div class="param-label"><span>图片大小</span><span class="param-value" id="imgScaleVal">100%</span></div>
-  <input type="range" id="imgScale" min="0.3" max="1.5" step="0.05" value="1">
+  <input type="range" id="imgScale" min="0.3" max="3" step="0.05" value="1">
 
   <div class="group-title">消散</div>
   <div class="param-label"><span>消散程度</span><span class="param-value" id="dissolveVal">45%</span></div>
@@ -318,7 +318,7 @@ function makeFallback() {
 
 function imageToCanvas(im) {
   const targetMax = Math.min(windowWidth, windowHeight) * 0.55 * cfg.imgScale;
-  const sc = Math.min(1.6, targetMax / Math.max(im.width, im.height));
+  const sc = targetMax / Math.max(im.width, im.height);
   const c = document.createElement('canvas');
   c.width = Math.max(2, Math.round(im.width * sc));
   c.height = Math.max(2, Math.round(im.height * sc));
