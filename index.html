@@ -162,7 +162,7 @@ let dragLastX = 0, dragLastY = 0;
 let geometryReady = false;
 let lastLoadedImage = null;
 let pCanvas = null, pctx = null;
-let strips = 50;
+let strips = 80;
 
 // 消散场：fieldP[i] ∈ 0..255（百分位），值越低越先消散
 let fieldP = null;
@@ -543,7 +543,7 @@ function render(dt) {
     ctx.globalAlpha = imgAlpha * depthFactor;
     ctx.save();
     ctx.transform(a, b, c, d, cx + tl.sx, cy + tl.sy);
-    ctx.drawImage(maskedCanvas, i * stripW, 0, stripW + 0.5, imgH, 0, 0, stripW + 0.5, imgH);
+    ctx.drawImage(maskedCanvas, i * stripW, 0, stripW + 2, imgH, 0, 0, stripW + 2, imgH);
     ctx.restore();
   }
   ctx.globalAlpha = 1.0;
